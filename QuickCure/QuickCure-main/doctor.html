@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuickCare – Doctor Dashboard</title>
+  <link rel="stylesheet" href="base.css" />
+  <link rel="stylesheet" href="doctor.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+        <img src="QuickCureLogo.jpg" alt="QuickCure Medical Logo" />
+        QuickCare
+      </a>
+    </div>
+    <nav>
+      <a href="indexDoctor.html">Home</a>
+      <a href="index.html" id="logoutBtn">Logout</a>
+    </nav>
+  </header>
+
+  <!-- Doctor Profile Header -->
+  <section class="doctor-header">
+    <div class="doctor-avatar">
+      <img src="https://placehold.co/120x120/3498db/ffffff?text=👨‍⚕️&font=oswald" alt="Doctor profile picture - professional medical practitioner" onerror="this.style.display='none'" />
+    </div>
+    <div class="doctor-info">
+      <h1 class="doctor-name" id="doctorProfileName">Dr. Priya Sharma</h1>
+      <p class="doctor-specialty" id="doctorProfileSpecialty">Cardiologist • 8 Years Experience</p>
+    </div>
+  </section>
+
+  <main class="dashboard">
+    <!-- Doctor Profile Card (Editable) -->
+    <section class="dashboard-card">
+      <h2>👨‍⚕️ My Profile</h2>
+      <form id="doctorProfileForm">
+        <label for="editDoctorName">Name</label>
+        <input type="text" id="editDoctorName" required />
+
+        <label for="editDoctorSpecialty">Specialty</label>
+        <input type="text" id="editDoctorSpecialty" required />
+
+        <label for="editDoctorExperience">Years of Experience</label>
+        <input type="number" id="editDoctorExperience" min="0" required />
+
+        <label for="editDoctorHospital">Hospital Affiliation</label>
+        <input type="text" id="editDoctorHospital" required />
+
+        <button type="submit">Save Profile</button>
+      </form>
+    </section>
+
+    <!-- Add Availability -->
+    <section class="dashboard-card">
+      <h2>📅 Add Availability</h2>
+      <form id="availabilityForm">
+        <label>Date</label>
+        <input type="date" id="availDate" required />
+
+        <label>Start Time</label>
+        <input type="time" id="availStart" required />
+
+        <label>End Time</label>
+        <input type="time" id="availEnd" required />
+
+        <label>Slot Duration (minutes)</label>
+        <input type="number" id="availSlot" min="15" step="15" value="30" required />
+
+        <label>Consultation Fee (₹)</label>
+        <input type="number" id="docFee" min="0" step="100" value="800" required />
+
+        <button type="submit">Add Time Slots</button>
+      </form>
+      <ul id="slotsList" class="list" style="margin-top:1.5rem;"></ul>
+    </section>
+
+    <!-- Today's Appointments -->
+    <section class="dashboard-card">
+      <h2>📝 Today's Appointments</h2>
+      <div class="appointment-stats">
+        <p>Total Scheduled: <strong id="totalScheduled">0</strong></p>
+        <p>Completed: <strong id="completed">0</strong></p>
+        <p>Upcoming: <strong id="upcoming">0</strong></p>
+      </div>
+      <ul id="appointmentList">
+        <!-- Appointment data will be loaded here -->
+      </ul>
+    </section>
+
+    <!-- Earnings & Performance -->
+    <section class="dashboard-card">
+      <h2>💰 Earnings & Performance</h2>
+      <div class="earnings-info">
+        <div class="earnings-stat">
+          <h3>Today's Earnings</h3>
+          <p>₹<span id="todayEarnings">0</span></p>
+        </div>
+        <div class="earnings-stat">
+          <h3>This Week</h3>
+          <p>₹<span id="weekEarnings">0</span></p>
+        </div>
+      </div>
+      
+      <h3>📊 Monthly Performance</h3>
+      <div class="performance-chart">
+        <img src="https://placehold.co/600x200/e9ecef/6c757d?text=Monthly+Performance+Chart&font=montserrat" alt="Monthly performance chart showing appointment trends and earnings" style="width:100%;border-radius:8px;" />
+      </div>
+      
+      <h3>⭐ Patient Feedback</h3>
+      <div class="rating-summary">
+        <div style="font-size:2em;color:#ffc107;text-align:center;">4.8/5</div>
+        <p style="text-align:center;color:#6c757d;">Based on 47 reviews</p>
+      </div>
+    </section>
+
+    <!-- Patient Records -->
+    <section class="dashboard-card">
+      <h2>📋 Patient Records</h2>
+      <div class="search-box">
+        <input type="text" placeholder="Search patients..." style="width:100%;padding:12px;border:2px solid #e1e8ed;border-radius:8px;margin-bottom:20px;">
+      </div>
+      <div class="patient-list" id="patientRecordsList">
+        <!-- Patient records will be loaded here -->
+      </div>
+    </section>
+  </main>
+
+  <script defer src="doctor.js"></script>
+  <footer>
+    <p>© 2025 QuickCure. Providing quality healthcare services.</p>
+  </footer>
+</body>
+</html>

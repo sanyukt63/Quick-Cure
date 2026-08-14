@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard – InstantDoc</title>
+  <link rel="stylesheet" href="base.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="QuickCureLogo.jpg" alt="QuickCure Medical Logo" />
+      QuickCare
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#" id="logoutBtn">Logout</a>
+    </nav>
+  </header>
+
+  <!-- Admin Dashboard -->
+  <main class="container">
+    <h1>Admin Dashboard</h1>
+    <p class="tagline">Manage hospitals, doctors, and system monitoring</p>
+
+    <!-- Stats -->
+    <section class="dashboard-stats">
+      <div class="stat-card">
+        <h2>Total Hospitals</h2>
+        <p id="hospitalCount">0</p>
+      </div>
+      <div class="stat-card">
+        <h2>Doctors Verified</h2>
+        <p id="doctorCount">0</p>
+      </div>
+      <div class="stat-card">
+        <h2>Appointments Today</h2>
+        <p id="appointmentsToday">0</p>
+      </div>
+      <div class="stat-card">
+        <h2>Total Users</h2>
+        <p id="totalUsers">0</p>
+      </div>
+    </section>
+
+    <!-- Management Panels -->
+    <section class="management-panels">
+      <div class="panel">
+        <h2>Hospital Verification</h2>
+        <p>Review and approve hospital registrations.</p>
+        <a href="admin-hostpital.html" class="btn">Verify Hospitals</a>
+      </div>
+      <div class="panel">
+        <h2>Doctor Management</h2>
+        <p>View doctors, verify credentials, manage schedules.</p>
+        <a href="admin-doctor.html" class="btn">Manage Doctors</a>
+      </div>
+      <div class="panel">
+        <h2>System Monitoring</h2>
+        <p>Track platform usage, resolve issues, and monitor activity.</p>
+        <button class="btn">View Reports</button>
+      </div>
+    </section>
+
+    <!-- Recent Activity Tables -->
+    <section class="admin-tables">
+      <h2>Recent Hospitals</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>City</th>
+            <th>Verified</th>
+          </tr>
+        </thead>
+        <tbody id="hospitalTable">
+          <!-- Hospital data will be loaded here -->
+        </tbody>
+      </table>
+
+      <h2>Recent Doctors</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Specialty</th>
+            <th>Hospital</th>
+            <th>Fees</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="doctorTable">
+          <!-- Doctor data will be loaded here -->
+        </tbody>
+      </table>
+
+      <h2>Recent Appointments</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Patient</th>
+            <th>Doctor</th>
+            <th>Hospital </th>
+            <th>Fees</th>
+          </tr>
+        </thead>
+        <tbody id="appointmentTable">
+          <!-- Appointment data will be loaded here -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script defer src="admin-auth.js"></script>
+  <script defer src="admin.js"></script>
+  <footer>
+    <p>© 2025 InstantDoc. Admin Panel.</p>
+  </footer>
+</body>
+
+</html>

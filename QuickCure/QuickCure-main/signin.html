@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuickCure – Sign In</title>
+  <link rel="stylesheet" href="base.css" />
+  <link rel="stylesheet" href="signin.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <img src="QuickCureLogo.jpg" alt="QuickCare Medical Logo - Stethoscope icon with blue background" onerror="this.style.display='none'" />
+      <span>QuickCure</span>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a class="SignUp" href="signUp.html">Sign Up</a>
+    </nav>
+  </header>
+
+  <main class="auth-container">
+    <h1>Welcome Back</h1>
+    <form id="signinForm">
+      <label>Email Address</label>
+      <input type="email" id="email" placeholder="Enter your email address" required />
+
+      <label>Password</label>
+      <input type="password" id="password" placeholder="Enter your password" required />
+
+      <div style="display: flex; align-items: center; justify-content: space-between; margin: 15px 0;">
+        <label style="margin: 0;">
+          <input type="checkbox" id="rememberMe" />
+          Remember me
+        </label>
+        <a href="#" style="color: #3498db; text-decoration: none; font-size: 14px;">Forgot password?</a>
+      </div>
+
+      <button type="submit" class="btn">Sign In</button>
+    </form>
+    <p>Don't have an account? <a href="signup.html">Create one here</a></p>
+  </main>
+  
+  <script defer src="auth.js"></script>
+  <footer>
+    <p>© 2025 QuickCure. Making healthcare accessible for everyone.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,699 @@
+/* Import base styles */
+@import url('base.css');
+
+/* Specific styles for patient.html */
+
+/* Hero text content */
+.hero h2 {
+    font-family: 'Lexend', sans-serif;
+    color: #FFD166; /* Accent Color: sun yellow */
+    font-size: 3.8em;
+    margin-bottom: 25px;
+    font-weight: 700;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.6); /* More pronounced shadow */
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.5em;
+    margin-bottom: 45px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+    color: #f0f0f0;
+}
+
+/* Booking Flow Section (Step 1: Inputs) */
+.booking-flow {
+  background-color: rgba(255, 255, 255, 0.98); /* Slightly more opaque white */
+  max-width: 700px; /* Wider */
+  margin: 0 auto 50px; /* Increased margin-bottom */
+  padding: 50px; /* Increased padding */
+  border-radius: 20px; /* More rounded corners */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15); /* More prominent shadow */
+  text-align: center;
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.booking-flow:hover {
+  transform: translateY(-5px); /* Subtle lift on hover */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.booking-flow h2 {
+  color: #2c3e50; /* Deep blue-gray */
+  margin-top: 0;
+  margin-bottom: 40px; /* Increased margin */
+  font-size: 2.5em; /* Larger */
+  font-weight: 700; /* Bolder */
+}
+
+.booking-flow label {
+  display: block;
+  text-align: left;
+  margin-bottom: 18px; /* Increased margin */
+  font-weight: 600;
+  color: #2c3e50; /* Deep blue-gray */
+  font-size: 1.1em; /* Larger */
+}
+
+.booking-flow select {
+  width: 100%;
+  padding: 18px; /* Increased padding */
+  border: 2px solid #dbe4eb; /* Lighter border */
+  border-radius: 12px; /* More rounded */
+  font-size: 17px; /* Slightly larger font */
+  margin-bottom: 35px; /* Increased margin */
+  transition: all 0.3s ease;
+  appearance: none; /* Remove default select arrow */
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%233498db%22%20d%3D%22M287%2C197.3L159.3%2C69.6c-3.7-3.7-9.7-3.7-13.4%2C0L5.4%2C197.3c-3.7%2C3.7-3.7%2C9.7%2C0%2C13.4l13.4%2C13.4c3.7%2C3.7%2C9.7%2C3.7%2C13.4%2C0l110.7-110.7c3.7-3.7%2C9.7-3.7%2C13.4%2C0l110.7%2C110.7c3.7%2C3.7%2C9.7%2C3.7%2C13.4%2C0l13.4-13.4C290.7%2C207%2C290.7%2C201%2C287%2C197.3z%22%2F%3E%3C%2Fsvg%3E'); /* Custom arrow */
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 12px;
+}
+
+.booking-flow select:focus {
+  border-color: #3498db; /* Calming blue */
+  outline: none;
+  box-shadow: 0 0 0 5px rgba(52, 152, 219, 0.2); /* Larger, more transparent shadow */
+  transform: translateY(-3px); /* More pronounced lift */
+}
+
+.booking-flow .btn {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); /* Calming blue gradient */
+  padding: 18px 45px; /* Balanced padding */
+  font-size: 1.15em; /* Slightly larger font */
+  width: auto;
+  max-width: 280px; /* Reasonable max width */
+  margin-top: 30px;
+  border-radius: 50px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: white;
+  box-shadow: 0 6px 18px rgba(41, 128, 185, 0.4);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-align: center;
+  user-select: none;
+}
+
+.booking-flow .btn:hover {
+  background: linear-gradient(135deg, #2980b9 0%, #2471a3 100%);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(41, 128, 185, 0.6);
+}
+
+/* Hospital List Section (Step 2: Ranked Hospitals) */
+.hospital-list {
+  max-width: 1100px; /* Wider */
+  margin: 0 auto 70px; /* Increased margin */
+  padding: 25px; /* Increased padding */
+  flex-grow: 1;
+}
+
+.hospital-list h2 {
+  color: #2c3e50; /* Deep blue-gray */
+  text-align: center;
+  margin-bottom: 50px; /* Increased margin */
+  font-size: 2.8em; /* Larger */
+  font-weight: 700;
+}
+
+#hospitalList {
+  display: flex;
+  flex-direction: column;
+  gap: 35px; /* Increased gap */
+}
+
+.hospital-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); /* Light gradient */
+  padding: 0;
+  border-radius: 20px; /* More rounded */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12); /* More prominent shadow */
+  display: flex;
+  overflow: hidden;
+  transition: all 0.4s ease; /* Slower transition */
+  border: 1px solid #e0e0e0; /* Subtle border */
+}
+
+.hospital-card:hover {
+  transform: translateY(-10px); /* More pronounced lift */
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.22); /* More pronounced shadow */
+}
+
+.hospital-image {
+  flex: 0 0 350px; /* Wider image column */
+  position: relative;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  overflow: hidden; /* Ensure image respects border-radius */
+}
+
+.hospital-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block; /* Remove extra space below image */
+}
+
+.hospital-badge {
+  position: absolute;
+  top: 20px; /* Slightly larger top margin */
+  left: 20px; /* Slightly larger left margin */
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); /* Red gradient */
+  color: white;
+  padding: 10px 20px; /* Slightly larger padding */
+  border-radius: 25px; /* More rounded */
+  font-size: 15px; /* Slightly larger font */
+  font-weight: 700; /* Bolder */
+  box-shadow: 0 3px 10px rgba(231, 76, 60, 0.4); /* Red shadow */
+}
+
+.hospital-content {
+  flex: 1;
+  padding: 40px; /* Increased padding */
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Increased gap */
+}
+
+.hospital-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px; /* Increased gap */
+}
+
+.hospital-header h3 {
+  color: #2c3e50; /* Deep blue-gray */
+  margin: 0;
+  font-size: 2em; /* Larger */
+  flex: 1;
+  font-weight: 700;
+}
+
+.badge {
+  padding: 8px 16px; /* Slightly larger padding */
+  border-radius: 8px; /* More rounded */
+  font-size: 13px; /* Slightly larger font */
+  font-weight: 700; /* Bolder */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge.govt {
+  background: #3498db; /* Calming blue */
+  color: white;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+}
+
+.badge.private {
+  background: #9b59b6; /* Purple */
+  color: white;
+  box-shadow: 0 2px 8px rgba(155, 89, 182, 0.3);
+}
+
+.hospital-rating {
+  color: #f39c12; /* Orange-yellow */
+  font-weight: 700; /* Bolder */
+  font-size: 15px; /* Slightly larger font */
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.hospital-rating::before {
+  content: '⭐'; /* Star icon */
+  font-size: 1.2em;
+}
+
+.doctor-info {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Increased gap */
+  padding: 25px; /* Increased padding */
+  background: #f8f9fa;
+  border-radius: 15px; /* More rounded */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); /* More pronounced subtle shadow */
+  border: 1px solid #f0f0f0; /* Subtle border */
+}
+
+.doctor-avatar img {
+  width: 70px; /* Larger */
+  height: 70px; /* Larger */
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #3498db; /* Blue border */
+}
+
+.doctor-details h4 {
+  margin: 0 0 10px; /* Increased margin */
+  color: #2c3e50; /* Deep blue-gray */
+  font-size: 1.2em; /* Larger */
+  font-weight: 700;
+}
+
+.doctor-details p {
+  margin: 0;
+  color: #6c757d;
+  font-size: 15px; /* Slightly larger font */
+}
+
+.hospital-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Wider min-width */
+  gap: 20px; /* Increased gap */
+  margin: 15px 0; /* Increased margin */
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Increased gap */
+  padding: 16px; /* Increased padding */
+  background: #f8f9fa;
+  border-radius: 10px; /* More rounded */
+  font-size: 15px; /* Slightly larger font */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* More pronounced subtle shadow */
+  border: 1px solid #f0f0f0; /* Subtle border */
+}
+
+.meta-item .icon {
+  font-size: 20px; /* Larger icon */
+  color: #3498db; /* Calming blue */
+}
+
+.hospital-contact {
+  background: #e8f6f3; /* Light green */
+  padding: 20px; /* Increased padding */
+  border-radius: 10px; /* More rounded */
+  margin: 15px 0; /* Increased margin */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); /* More pronounced subtle shadow */
+  border: 1px solid #d1ede8; /* Subtle green border */
+}
+
+.hospital-contact p {
+  margin: 8px 0; /* Increased margin */
+  color: #166534; /* Dark green */
+  font-size: 15px; /* Slightly larger font */
+  line-height: 1.5;
+}
+
+.hcard-actions {
+  display: flex;
+  gap: 20px; /* Increased gap */
+  margin-top: auto;
+}
+
+.hcard-actions .btn {
+  flex: 1;
+  padding: 16px; /* Increased padding */
+  font-size: 1.1em; /* Larger */
+  border-radius: 10px; /* More rounded */
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+
+.book-btn {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); /* Red gradient */
+  color: white;
+}
+
+.view-btn {
+  background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%); /* Muted gray gradient */
+  color: white;
+}
+
+.book-btn:hover {
+  background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+  transform: translateY(-4px); /* More pronounced lift */
+  box-shadow: 0 8px 20px rgba(231, 76, 60, 0.4); /* Enhanced red shadow */
+}
+
+.view-btn:hover {
+  background: linear-gradient(135deg, #7f8c8d 0%, #6c7a89 100%);
+  transform: translateY(-4px); /* More pronounced lift */
+  box-shadow: 0 8px 20px rgba(149, 165, 166, 0.4); /* Enhanced gray shadow */
+}
+
+.empty-state {
+  text-align: center;
+  padding: 80px 30px; /* Increased padding */
+  color: #6c757d;
+  background-color: #fdfdfd;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.empty-state img {
+  width: 120px; /* Larger */
+  height: 120px; /* Larger */
+  margin-bottom: 30px; /* Increased margin */
+  opacity: 0.8;
+}
+
+.empty-state h3 {
+  color: #2c3e50; /* Deep blue-gray */
+  margin-bottom: 20px; /* Increased margin */
+  font-size: 2em; /* Larger */
+  font-weight: 700;
+}
+
+.empty-state p {
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .hospital-card {
+    flex-direction: column;
+  }
+
+  .hospital-image {
+    flex: none;
+    width: 100%;
+    height: 250px; /* Taller */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 0;
+  }
+
+  .hospital-content {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .booking-flow {
+    padding: 40px 30px;
+    margin: 0 20px 40px;
+  }
+
+  .hospital-list {
+    padding: 0 20px;
+  }
+
+  .hospital-header {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .hcard-actions {
+    flex-direction: column;
+  }
+
+  .hospital-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .empty-state {
+    padding: 60px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .booking-flow {
+    padding: 30px 20px;
+  }
+
+  .booking-flow h2 {
+    font-size: 2em;
+  }
+
+  .booking-flow .btn {
+    padding: 15px 30px;
+    font-size: 1em;
+  }
+
+  .hospital-content {
+    padding: 25px;
+  }
+
+  .hospital-list h2 {
+    font-size: 2.2em;
+  }
+
+  .doctor-info {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .doctor-avatar img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .hospital-header h3 {
+    font-size: 1.6em;
+  }
+
+  .hcard-actions .btn {
+    padding: 12px;
+    font-size: 0.95em;
+  }
+}
+
+/* Specific styles for patient_profile.html */
+.profile-container {
+  max-width: 850px; /* Wider */
+  margin: 50px auto; /* Increased margin */
+  padding: 50px; /* Increased padding */
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); /* Light gradient */
+  border-radius: 20px; /* More rounded */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18); /* More prominent shadow */
+  display: flex;
+  flex-direction: column;
+  gap: 35px; /* Increased gap */
+  border: 1px solid #e0e0e0; /* Subtle border */
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 25px; /* Increased margin */
+}
+
+.profile-header h1 {
+  color: #2c3e50;
+  font-size: 3.2em; /* Larger font size */
+  margin-bottom: 12px; /* Increased margin */
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.profile-header p {
+  color: #6c757d;
+  font-size: 1.3em; /* Larger font size */
+  line-height: 1.6;
+}
+
+.profile-details div {
+  margin-bottom: 25px; /* Increased margin */
+}
+
+.profile-details label {
+  font-weight: 600;
+  color: #2c3e50;
+  display: block;
+  margin-bottom: 10px; /* Increased margin */
+  font-size: 1.15em; /* Larger font size */
+}
+
+.profile-details input[type="text"] {
+  width: calc(100% - 36px); /* Adjust for padding and border */
+  padding: 18px; /* Increased padding */
+  border: 2px solid #dbe4eb; /* Lighter border */
+  border-radius: 12px; /* More rounded */
+  font-size: 1.15em; /* Larger font size */
+  color: #333;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); /* Subtle inner shadow */
+}
+
+.profile-details input[type="text"]:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 5px rgba(52, 152, 219, 0.2), inset 0 1px 3px rgba(0,0,0,0.05); /* Enhanced shadow */
+  outline: none;
+}
+
+.profile-details .editable-field {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Increased gap */
+}
+
+.profile-details .editable-field input {
+  flex-grow: 1;
+}
+
+.profile-details .edit-btn,
+.profile-details .save-btn {
+  padding: 12px 25px; /* Increased padding */
+  border-radius: 10px; /* More rounded */
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  white-space: nowrap; /* Prevent button text from wrapping */
+  font-size: 1.05em; /* Slightly larger font */
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+
+.profile-details .edit-btn {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  color: white;
+}
+
+.profile-details .edit-btn:hover {
+  background: linear-gradient(135deg, #2980b9 0%, #2471a3 100%);
+  transform: translateY(-3px); /* More pronounced lift */
+  box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4); /* Enhanced blue shadow */
+}
+
+.profile-details .save-btn {
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+  color: white;
+}
+
+.profile-details .save-btn:hover {
+  background: linear-gradient(135deg, #27ae60 0%, #219653 100%);
+  transform: translateY(-3px); /* More pronounced lift */
+  box-shadow: 0 6px 15px rgba(46, 204, 113, 0.4); /* Enhanced green shadow */
+}
+
+.appointments-section h2 {
+  color: #2c3e50;
+  margin-bottom: 25px; /* Increased margin */
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 12px; /* Increased padding */
+  font-size: 2.4em; /* Larger font size */
+  font-weight: 700;
+  text-align: center;
+}
+
+.appointments-list {
+  list-style: none;
+  padding: 0;
+}
+
+.appointments-list li {
+  background: linear-gradient(135deg, #e8f6f3 0%, #d1ede8 100%); /* Light green gradient */
+  border: 1px solid #bbf7d0;
+  padding: 25px; /* Increased padding */
+  margin-bottom: 18px; /* Increased margin */
+  border-radius: 12px; /* More rounded */
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Increased gap */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* More pronounced subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.appointments-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+.appointments-list li strong {
+  color: #166534;
+  font-size: 1.2em; /* Larger font */
+  font-weight: 700;
+}
+
+.appointments-list li span {
+  color: #495057;
+  font-size: 1em; /* Slightly larger font */
+  line-height: 1.5;
+}
+
+.empty-appointments {
+  text-align: center;
+  color: #6c757d;
+  padding: 40px; /* Increased padding */
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  font-size: 1.2em; /* Larger font */
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px dashed #e0e0e0; /* Dashed border */
+}
+
+/* Responsive Adjustments for Profile Page */
+@media (max-width: 768px) {
+  .profile-container {
+    margin: 30px 20px;
+    padding: 40px;
+    gap: 25px;
+  }
+
+  .profile-header h1 {
+    font-size: 2.5em;
+  }
+
+  .profile-header p {
+    font-size: 1.1em;
+  }
+
+  .profile-details input[type="text"],
+  .profile-details .editable-field input {
+    padding: 15px;
+    font-size: 1.05em;
+  }
+
+  .profile-details .edit-btn,
+  .profile-details .save-btn {
+    padding: 10px 20px;
+    font-size: 0.95em;
+  }
+
+  .appointments-section h2 {
+    font-size: 2em;
+  }
+
+  .appointments-list li {
+    padding: 20px;
+    gap: 8px;
+  }
+
+  .appointments-list li strong {
+    font-size: 1.1em;
+  }
+
+  .empty-appointments {
+    padding: 30px;
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-container {
+    padding: 25px;
+  }
+
+  .profile-header h1 {
+    font-size: 2em;
+  }
+
+  .profile-details .editable-field {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .profile-details .edit-btn,
+  .profile-details .save-btn {
+    width: 100%;
+  }
+
+  .appointments-section h2 {
+    font-size: 1.8em;
+  }
+
+  .appointments-list li {
+    padding: 15px;
+  }
+}

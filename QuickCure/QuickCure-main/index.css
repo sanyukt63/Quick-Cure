@@ -1,0 +1,358 @@
+/* Import base styles */
+@import url('base.css');
+
+/* Specific styles for index.html */
+
+/* Navbar specific button styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 25px; /* Increased padding */
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); /* Deep blue-gray gradient */
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+}
+
+.navbar .logo a {
+    font-size: 1.8em; /* Slightly larger */
+    font-weight: bold;
+    color: #fff; /* Changed to white for consistency with navbar background */
+    text-decoration: none;
+}
+
+.navbar .nav-links {
+    display: flex;
+    gap: 18px; /* Increased gap */
+}
+
+.navbar .admin-btn {
+    background: linear-gradient(135deg, #e67e22 0%, #d35400 100%); /* Retain original orange gradient */
+    padding: 12px 22px; /* Slightly larger padding */
+    border-radius: 8px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.navbar .admin-btn:hover {
+    background: linear-gradient(135deg, #d35400 0%, #ba4a00 100%);
+    transform: translateY(-3px); /* More pronounced lift */
+}
+
+.navbar .signin-link,
+.navbar .signup-link {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); /* Calming blue gradient */
+    padding: 12px 22px; /* Slightly larger padding */
+    border-radius: 8px;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.navbar .signin-link:hover,
+.navbar .signup-link:hover {
+    background: linear-gradient(135deg, #2980b9 0%, #2471a3 100%);
+    transform: translateY(-3px); /* More pronounced lift */
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 80px 30px; /* Increased padding */
+    background-color: #1E2A38; /* Base color for hero section */
+    color: white;
+    border-radius: 1px;
+    margin-bottom: 5px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left:0%;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+    z-index: 1;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.6); /* Slightly more dim for better text contrast */
+}
+
+/* Gradient overlay on image */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(30,42,56,0.7), rgba(30,42,56,0.7)); /* Slightly more opaque overlay */
+    border-radius: 15px;
+    z-index: 2;
+}
+
+/* Hero text content */
+.hero h2 {
+    font-family: 'Lexend', sans-serif;
+    color: #FFD166; /* Accent Color: sun yellow */
+    font-size: 3.8em;
+    margin-bottom: 25px;
+    font-weight: 700;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.6); /* More pronounced shadow */
+    line-height: 1.2;
+    position: relative; /* Ensure text is above overlay */
+    z-index: 3;
+}
+
+.hero p {
+    font-size: 1.5em;
+    margin-bottom: 45px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+    color: #f0f0f0;
+    position: relative; /* Ensure text is above overlay */
+    z-index: 3;
+}
+
+/* Role Selection Cards */
+.role-selection {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.role-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); /* Light gradient */
+    padding: 35px; /* Increased padding */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.role-card:hover {
+    transform: translateY(-12px); /* More pronounced lift */
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+}
+
+.card-image {
+    margin-bottom: 25px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-image img {
+    width: 100%;
+    height: 220px; /* Slightly taller */
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.role-card:hover .card-image img {
+    transform: scale(1.08); /* More pronounced scale */
+}
+
+.role-card h2 {
+    color: #2c3e50; /* Deep blue-gray */
+    margin: 0 0 18px; /* Increased margin */
+    font-size: 2em; /* Slightly larger */
+    font-weight: 700;
+}
+
+.role-card p {
+    color: #555;
+    font-size: 1.15em; /* Slightly larger */
+    line-height: 1.7; /* Increased line height */
+    margin-bottom: 30px; /* Increased margin */
+    flex-grow: 1;
+}
+
+.role-card .btn {
+    background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%); /* Calming green gradient */
+    padding: 16px 32px; /* Slightly larger padding */
+    font-size: 1.1em; /* Slightly larger */
+    border-radius: 50px;
+    color: #fff;
+    text-decoration: none;
+    margin-top: auto;
+}
+
+.role-card .btn:hover {
+    background: linear-gradient(135deg, #16a085 0%, #138a6f 100%);
+    transform: translateY(-3px); /* More pronounced lift */
+}
+
+/* Features Section */
+.features-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 80px 20px;
+    margin-top: 40px;
+}
+
+.features-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.features-section h2 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2.5em;
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 35px;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 35px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+
+    /* Ensure all content is centered */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card img {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    /* Force image to center */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feature-card h3 {
+    color: #2c3e50;
+    margin: 0 0 15px;
+    font-size: 1.4em;
+    font-weight: 600;
+    text-align: center;
+}
+
+.feature-card p {
+    color: #666;
+    line-height: 1.7;
+    margin: 0;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px; /* Increased padding */
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); /* Deep blue-gray gradient */
+    color: #fff;
+    font-size: 14px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Added top shadow */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .role-selection {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 40px 15px;
+    }
+
+    .role-card {
+        padding: 30px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .features-section {
+        padding: 60px 15px;
+    }
+
+    .features-section h2 {
+        font-size: 2em;
+        margin-bottom: 40px;
+    }
+
+    .hero h2 {
+        font-size: 2.8em;
+    }
+
+    .hero p {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .navbar .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .navbar .nav-links a {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero h2 {
+        font-size: 2.2em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+}
+
+/* Additional missing styles */
+.container {
+    overflow: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}

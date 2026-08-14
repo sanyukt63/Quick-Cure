@@ -1,0 +1,303 @@
+/* Import base styles */
+@import url('base.css');
+
+/* Specific styles for doctor.html */
+
+/* Dashboard Main Content */
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 35px; /* Increased gap */
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  padding: 40px 20px;
+  flex-grow: 1;
+}
+
+.dashboard-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); /* Light gradient */
+  padding: 35px; /* Increased padding */
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-8px); /* More pronounced lift */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18); /* More pronounced shadow */
+}
+
+.dashboard-card h2 {
+  color: #2c3e50; /* Deep blue-gray */
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-size: 1.8em; /* Slightly larger */
+  border-bottom: 2px solid #e0e0e0; /* Lighter border */
+  padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Increased gap */
+}
+
+/* Doctor Profile Header */
+.doctor-header {
+  text-align: center;
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); /* Calming blue gradient */
+  color: #fff;
+  padding: 35px 20px; /* Increased padding */
+  margin-bottom: 40px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
+}
+
+.doctor-avatar {
+  width: 130px; /* Slightly larger */
+  height: 130px; /* Slightly larger */
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  border: 5px solid #fff; /* Slightly thicker border */
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); /* Light blue gradient */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 52px; /* Slightly larger icon */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
+}
+
+.doctor-info {
+  margin-bottom: 25px; /* Increased margin */
+}
+
+.doctor-name {
+  font-size: 2.4em; /* Slightly larger */
+  margin: 0 0 12px; /* Increased margin */
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Added subtle shadow */
+}
+
+.doctor-specialty {
+  font-size: 1.3em; /* Slightly larger */
+  opacity: 0.95; /* Slightly more opaque */
+  margin: 0;
+}
+
+/* Form Styles within Dashboard Card */
+#availabilityForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#availabilityForm label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #2c3e50; /* Deep blue-gray */
+  font-size: 0.95em;
+}
+
+#availabilityForm input[type="date"],
+#availabilityForm input[type="time"],
+#availabilityForm input[type="number"] {
+  width: calc(100% - 24px);
+  padding: 14px; /* Increased padding */
+  border: 2px solid #e1e8ed;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+#availabilityForm input:focus {
+  border-color: #3498db; /* Calming blue */
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.15); /* Slightly larger, more transparent shadow */
+  transform: translateY(-2px); /* More pronounced lift */
+}
+
+#availabilityForm button[type="submit"] {
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%); /* Calming green gradient */
+  padding: 16px; /* Slightly larger padding */
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 15px; /* Increased margin */
+}
+
+#availabilityForm button[type="submit"]:hover {
+  background: linear-gradient(135deg, #27ae60 0%, #219653 100%);
+  transform: translateY(-3px); /* More pronounced lift */
+}
+
+/* List Styles */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list li {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  padding: 18px; /* Increased padding */
+  margin-bottom: 15px; /* Increased margin */
+  border-radius: 8px;
+  color: #495057;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05); /* Added subtle shadow */
+}
+
+.list li:hover {
+  background-color: #eef3f7; /* Lighter hover effect */
+  transform: translateX(8px); /* More pronounced slide */
+}
+
+#appointmentList li {
+  background: linear-gradient(135deg, #e8f6f3 0%, #d1ede8 100%); /* Light green gradient */
+  border-color: #bbf7d0;
+}
+
+/* Earnings Section Specifics */
+.earnings-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px; /* Increased gap */
+  margin-bottom: 25px; /* Increased margin */
+}
+
+.earnings-stat {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); /* Light gray gradient */
+  padding: 25px; /* Increased padding */
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05); /* Added subtle shadow */
+}
+
+.earnings-stat h3 {
+  margin: 0 0 12px; /* Increased margin */
+  color: #6c757d;
+  font-size: 1em; /* Slightly larger */
+}
+
+.earnings-stat p {
+  margin: 0;
+  font-size: 2em; /* Slightly larger */
+  font-weight: 700;
+  color: #28a745; /* Calming green */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+    padding: 20px 15px;
+    gap: 30px;
+  }
+
+  .dashboard-card {
+    padding: 30px 25px;
+  }
+
+  .earnings-info {
+    grid-template-columns: 1fr;
+  }
+
+  .doctor-name {
+    font-size: 2em;
+  }
+
+  .list li {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
+
+/* Loading Animation */
+.loading-spinner {
+  display: inline-block;
+  width: 22px; /* Slightly larger */
+  height: 22px; /* Slightly larger */
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3498db; /* Calming blue */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 12px; /* Increased margin */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+footer {
+    text-align: center;
+    padding: 30px; /* Increased padding */
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); /* Deep blue-gray gradient */
+    color: #fff;
+    font-size: 14px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Added top shadow */
+}
+
+
+
+
+.removeDayBtn {
+  background: #e74c3c; /* Bright red */
+  color: white;
+  border: none;
+  border-radius: 20px; /* Pill shape */
+  padding: 6px 14px;
+  font-size: 0.9em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.removeDayBtn:hover {
+  background: #c0392b; /* Darker red on hover */
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.removeDayBtn:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+#backToPatients {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  color: #ffffff;
+  border: none;
+  padding: 6px 14px;       /* reduced padding */
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;         /* slightly smaller text */
+  font-weight: 600;
+  min-width: 90px;         /* keep button compact */
+  margin-bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.25);
+  transition: all 0.3s ease;
+}
+
+#backToPatients:hover {
+  background: linear-gradient(135deg, #2980b9 0%, #2471a3 100%);
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 4px 10px rgba(41, 128, 185, 0.35);
+}
+
+#backToPatients:active {
+  transform: translateY(0) scale(0.96);
+  box-shadow: 0 2px 6px rgba(41, 128, 185, 0.2);
+}

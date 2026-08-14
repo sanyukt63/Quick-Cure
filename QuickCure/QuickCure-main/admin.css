@@ -1,0 +1,230 @@
+/* Import base styles */
+@import url('base.css');
+
+/* Specific styles for admin.html */
+
+/* Main Container */
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+  border-radius: 10px; /* Slightly more rounded */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Softer shadow */
+}
+
+h1 {
+  color: #2c3e50; /* Deep blue-gray */
+  text-align: center;
+  margin-bottom: 15px; /* Increased margin */
+  font-size: 2.2em; /* Slightly larger */
+}
+
+.tagline {
+  text-align: center;
+  color: #7f8c8d; /* Muted gray */
+  margin-bottom: 35px; /* Increased margin */
+  font-size: 1.1em;
+}
+
+/* Navbar specific logout button */
+#logoutBtn {
+  background-color: #e74c3c; /* Retain red for logout for clarity */
+  padding: 10px 18px; /* Slightly larger padding */
+  border-radius: 6px; /* Slightly more rounded */
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#logoutBtn:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+}
+
+/* Dashboard Stats Section */
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px; /* Increased gap */
+  margin-bottom: 45px; /* Increased margin */
+}
+
+.stat-card {
+  background-color: rgba(236, 240, 241, 0.7); /* Lighter, slightly transparent gray */
+  padding: 25px; /* Increased padding */
+  border-radius: 10px; /* Slightly more rounded */
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Softer shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px); /* More pronounced lift */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.stat-card h2 {
+  color: #34495e; /* Deep blue-gray */
+  margin-top: 0;
+  font-size: 1.3em; /* Slightly larger */
+  margin-bottom: 10px;
+}
+
+.stat-card p {
+  font-size: 2.8em; /* Slightly smaller for balance */
+  font-weight: bold;
+  color: #1abc9c; /* Calming teal-green */
+  margin: 10px 0 0;
+}
+
+/* Management Panels Section */
+.management-panels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px; /* Increased gap */
+  margin-bottom: 45px; /* Increased margin */
+}
+
+.panel {
+  background-color: rgba(253, 253, 253, 0.9); /* Lighter, slightly transparent white */
+  padding: 30px; /* Increased padding */
+  border-radius: 10px; /* Slightly more rounded */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Softer shadow */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.panel:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.panel h2 {
+  color: #34495e; /* Deep blue-gray */
+  margin-top: 0;
+  font-size: 1.4em; /* Slightly larger */
+  margin-bottom: 15px;
+}
+
+.panel p {
+  color: #555;
+  flex-grow: 1;
+  margin-bottom: 25px; /* Increased margin */
+  line-height: 1.7;
+}
+
+.panel .btn {
+  background-color: #3498db; /* Calming blue */
+  padding: 12px 24px; /* Consistent button padding */
+  border-radius: 8px; /* Consistent button border-radius */
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.panel .btn:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+/* Admin Tables Section */
+.admin-tables {
+  margin-top: 50px; /* Increased margin */
+}
+
+.admin-tables h2 {
+  color: #2c3e50; /* Deep blue-gray */
+  margin-bottom: 20px; /* Increased margin */
+  border-bottom: 2px solid #e0e0e0; /* Lighter border */
+  padding-bottom: 8px; /* Increased padding */
+  font-size: 1.8em;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 35px; /* Increased margin */
+  background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Softer shadow */
+  border-radius: 10px; /* Slightly more rounded */
+  overflow: hidden;
+}
+
+table thead {
+  background-color: #34495e; /* Deep blue-gray */
+  color: #fff;
+}
+
+table th,
+table td {
+  padding: 15px 18px; /* Increased padding */
+  text-align: left;
+  border-bottom: 1px solid #e9ecef; /* Lighter border */
+}
+
+table th {
+  font-weight: 600; /* Slightly less bold */
+  text-transform: uppercase; /* Uppercase for professionalism */
+  font-size: 0.95em;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #f8f9fa; /* Lighter even row */
+}
+
+table tbody tr:hover {
+  background-color: #eef3f7; /* Lighter hover effect */
+  transition: background-color 0.2s ease;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .dashboard-stats,
+  .management-panels {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    padding: 20px;
+    margin: 15px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  .tagline {
+    font-size: 1em;
+  }
+
+  .stat-card {
+    padding: 20px;
+  }
+
+  .stat-card p {
+    font-size: 2.2em;
+  }
+
+  .panel {
+    padding: 25px;
+  }
+
+  .admin-tables h2 {
+    font-size: 1.5em;
+  }
+
+  table th,
+  table td {
+    padding: 10px 12px;
+  }
+}
+footer {
+    text-align: center;
+    padding: 30px; /* Increased padding */
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); /* Deep blue-gray gradient */
+    color: #fff;
+    font-size: 14px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Added top shadow */
+}

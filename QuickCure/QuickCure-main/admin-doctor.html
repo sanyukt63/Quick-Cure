@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Doctor Management – QuickCure</title>
+
+  <!-- Base styles (your existing files) -->
+  <link rel="stylesheet" href="base.css" />
+  <link rel="stylesheet" href="admin.css" />
+
+  <!-- Fixed/updated stylesheet for this page -->
+  <link rel="stylesheet" href="admin-doctor.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <img src="QuickCureLogo.jpg" alt="QuickCure Medical Logo" />
+      QuickCare
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="admin.html">Dashboard</a>
+      <a href="#" id="logoutBtn">Logout</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Doctor Management</h1>
+    <p class="tagline">Add, view, and manage doctors in the system.</p>
+
+    <section class="doctor-management-section">
+      <h2>Add New Doctor</h2>
+
+      <form id="addDoctorForm" class="doctor-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="doctorName">Full Name</label>
+            <input type="text" id="doctorName" placeholder="e.g., Dr. Rajesh Kumar" required />
+          </div>
+
+          <div class="form-group">
+            <label for="doctorEmail">Email</label>
+            <input type="email" id="doctorEmail" placeholder="e.g., dr.rajesh@hospital.com" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="doctorSpecialty">Specialty</label>
+            <select id="doctorSpecialty" required>
+              <option value="">-- Select Specialty --</option>
+              <option value="cardiology">Cardiology</option>
+              <option value="dermatology">Dermatology</option>
+              <option value="orthopedics">Orthopedics</option>
+              <option value="pediatrics">Pediatrics</option>
+              <option value="ent">ENT</option>
+              <option value="psychiatry">Psychiatry</option>
+              <option value="general">General Physician</option>
+              <option value="neurology">Neurology</option>
+              <option value="oncology">Oncology</option>
+              <option value="gynecology">Gynecology</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="doctorExperience">Experience (Years)</label>
+            <input type="number" id="doctorExperience" min="0" max="50" placeholder="e.g., 10" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="doctorHospital">Hospital</label>
+            <select id="doctorHospital" required>
+              <option value="">-- Select Hospital --</option>
+              <option value="apollo">Apollo Hospitals</option>
+              <option value="fortis">Fortis Healthcare</option>
+              <option value="max">Max Super Speciality</option>
+              <option value="medanta">Medanta The Medicity</option>
+              <option value="artemis">Artemis Hospitals</option>
+              <option value="city_general">City General Hospital</option>
+              <option value="green_valley">Green Valley Multi-speciality</option>
+              <option value="metro_care">Metro Care Clinic</option>
+              <option value="national_health">National Health Center</option>
+              <option value="apollo_speciality">Apollo Speciality Hospital</option>
+              <option value="fortis_healthcare">Fortis Healthcare</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="doctorCity">City</label>
+            <select id="doctorCity" required>
+              <option value="">-- Choose City --</option>
+              <option value="delhi">Delhi</option>
+              <option value="mumbai">Mumbai</option>
+              <option value="bengaluru">Bengaluru</option>
+              <option value="kolkata">Kolkata</option>
+              <option value="chennai">Chennai</option>
+              <option value="hyderabad">Hyderabad</option>
+              <option value="pune">Pune</option>
+              <option value="lucknow">Lucknow</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="doctorQualification">Qualification</label>
+            <input type="text" id="doctorQualification" placeholder="e.g., MBBS, MD" required />
+          </div>
+
+          <div class="form-group">
+            <label for="doctorAvailability">Availability Status</label>
+            <select id="doctorAvailability" required>
+              <option value="available">Available</option>
+              <option value="busy">Busy</option>
+              <option value="on_leave">On Leave</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="doctorBio">Bio/Description</label>
+          <textarea id="doctorBio" placeholder="Brief description about the doctor's expertise and experience..." rows="3"></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn clear">Clear Form</button>
+          <button type="submit" class="btn add">Add Doctor</button>
+        </div>
+      </form>
+
+      <h2>Existing Doctors</h2>
+
+      <div class="search-filter">
+        <input type="text" id="doctorSearch" placeholder="Search doctors by name, specialty, or city..." class="search-input" />
+        <select id="filterSpecialty" class="filter-select">
+          <option value="">All Specialties</option>
+          <option value="cardiology">Cardiology</option>
+          <option value="dermatology">Dermatology</option>
+          <option value="orthopedics">Orthopedics</option>
+          <option value="pediatrics">Pediatrics</option>
+        </select>
+        <select id="filterCity" class="filter-select">
+          <option value="">All Cities</option>
+          <option value="delhi">Delhi</option>
+          <option value="mumbai">Mumbai</option>
+          <option value="bengaluru">Bengaluru</option>
+        </select>
+      </div>
+
+      <table id="doctorManagementTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Specialty</th>
+            <th>Hospital</th>
+            <th>City</th>
+            <th>Experience</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="doctorListBody">
+          <!-- Rows injected by JavaScript -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script defer src="admin-auth.js"></script>
+  <script defer src="admin-doctor.js"></script>
+
+  <footer>
+    <p>© 2025 InstantDoc. Admin Panel.</p>
+  </footer>
+</body>
+</html>

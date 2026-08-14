@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuickCare – Patient Profile</title>
+  <link rel="stylesheet" href="base.css" />
+  <link rel="stylesheet" href="patient.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <img src="QuickCureLogo.jpg" alt="QuickCare Medical Logo - Stethoscope icon with blue background" onerror="this.style.display='none'" />
+      <span>QuickCare</span>
+    </div>
+    <nav class="nav-links">
+      <a href="indexPatient.html">Home</a>
+      <a class="Home" href="patient.html">Take Appointment</a>
+      <a href="index.html" id="logoutBtn">Logout</a>
+    </nav>
+  </header>
+
+  <main class="profile-container">
+    <div class="profile-header">
+      <h1>Your Profile</h1>
+      <p>Manage your personal information and appointments.</p>
+    </div>
+
+    <section class="profile-details">
+      <h2>Personal Information</h2>
+      <div>
+        <label for="editProfileName">Full Name:</label>
+        <div class="editable-field">
+          <input type="text" id="editProfileName" readonly style="border: none; background: transparent; font-weight: bold; color: #2c3e50;"/>
+          <button id="editProfileBtn" class="edit-btn">Edit</button>
+          <button id="saveProfileBtn" class="save-btn" style="display:none;">Save</button>
+        </div>
+      </div>
+      <div>
+        <label>Email Address:</label>
+        <p id="profileEmail" style="background-color: #f0f0f0; padding: 12px 15px; border-radius: 8px; border: 1px solid #e1e8ed;"></p>
+      </div>
+    </section>
+
+    <section class="appointments-section">
+      <h2>Your Appointments</h2>
+      <ul id="patientAppointmentsList" class="appointments-list">
+        <!-- Patient's booked appointments will be loaded here -->
+      </ul>
+      <div id="emptyAppointments" class="empty-appointments" style="display:none;">
+        <p>You have no upcoming appointments.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 QuickCare. Making healthcare accessible for everyone.</p>
+  </footer>
+
+  <script>
+    // 🔹 Helper for API requests
+    async function apiFetch(url, options = {}) {
+      const token = localStorage.getItem("token");
+      const headers = {
+        "Content-Type": "application/json",
+        ...(options.headers || {}),
+      };
+      if (token) headers.Authorization = `Bearer ${token}`;
+
+      const res = await fetch(url, { ...options, headers });
+      if (!res.ok) throw new Error(`API error ${res.status}: ${await res.text()}`);
+      return res.json();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const editProfileName = document.getElementById("editProfileName");
+      const profileEmail = document.getElementById("profileEmail");
+      const patientAppointmentsList = document.getElementById("patientAppointmentsList");
+      const emptyAppointments = document.getElementById("emptyAppointments");
+      const logoutBtn = document.getElementById("logoutBtn");
+      const editProfileBtn = document.getElementById("editProfileBtn");
+      const saveProfileBtn = document.getElementById("saveProfileBtn");
+
+      let currentPatient = null;
+
+      // 🔹 Load Patient Profile
+      async function loadProfile() {
+        try {
+          const data = await apiFetch("http://localhost:3040/patients/profile");
+          currentPatient = data.profile || data;
+
+          editProfileName.value = currentPatient.name || "";
+          profileEmail.textContent = currentPatient.email || "";
+
+          loadAppointments();
+        } catch (err) {
+          console.error("Error loading profile:", err.message);
+          alert("Please login again");
+          window.location.href = "signin.html";
+        }
+      }
+
+      // 🔹 Load Appointments (fixed date + time)
+      async function loadAppointments() {
+        try {
+          const appts = await apiFetch("http://localhost:3040/appointments/me");
+          patientAppointmentsList.innerHTML = "";
+
+          if (appts.length > 0) {
+            appts.forEach(appt => {
+              const dateStr = new Date(appt.date).toDateString(); // "Sat Sep 06 2025"
+              const timeStr = appt.time || ""; // e.g., "01:15 pm"
+
+              const li = document.createElement("li");
+              li.innerHTML = `
+                <strong>${appt.doctor?.name || "Doctor"}</strong> 
+                (${appt.doctor?.specialization || "Specialty"})<br>
+                <span>Date/Time: ${dateStr} - ${timeStr}</span><br>
+                <span>Consultation Fee: ₹${appt.fees || 0}</span>
+              `;
+              patientAppointmentsList.appendChild(li);
+            });
+            emptyAppointments.style.display = "none";
+          } else {
+            emptyAppointments.style.display = "block";
+          }
+        } catch (err) {
+          console.error("Error loading appointments:", err.message);
+        }
+      }
+
+      // 🔹 Edit Profile
+      editProfileBtn.addEventListener("click", () => {
+        editProfileName.readOnly = false;
+        editProfileName.style.border = "2px solid #e1e8ed";
+        editProfileName.style.background = "#fff";
+        editProfileName.focus();
+        editProfileBtn.style.display = "none";
+        saveProfileBtn.style.display = "inline-block";
+      });
+
+      saveProfileBtn.addEventListener("click", async () => {
+        const newName = editProfileName.value.trim();
+        if (newName && currentPatient) {
+          try {
+            await apiFetch("http://localhost:3040/patients/update", {
+              method: "POST",
+              body: JSON.stringify({ name: newName }),
+            });
+            alert("Profile updated successfully!");
+            loadProfile(); // reload from backend
+          } catch (err) {
+            console.error("Error updating profile:", err.message);
+          }
+        } else {
+          alert("Name cannot be empty.");
+        }
+      });
+
+      // 🔹 Logout
+      logoutBtn.addEventListener("click", async (e) => {
+        e.preventDefault();
+        try {
+          await fetch("http://localhost:3040/logout", {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          });
+        } catch (err) {
+          console.error("Logout failed:", err.message);
+        }
+        localStorage.removeItem("token");
+        window.location.href = "index.html";
+      });
+
+      // Init
+      loadProfile();
+    });
+  </script>
+</body>
+</html>

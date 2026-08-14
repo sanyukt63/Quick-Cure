@@ -1,0 +1,194 @@
+/* Import base styles */
+@import url('base.css');
+
+/* Specific styles for signup.css */
+
+.auth-container {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Retain original gradient */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.auth-container h1 {
+  color: #fff;
+  margin-bottom: 35px; /* Increased margin */
+  font-size: 2.5em; /* Slightly larger */
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4); /* More pronounced shadow */
+}
+
+
+   .SignIn{
+        background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); /* Calming blue gradient */
+    padding: 12px 22px; /* Slightly larger padding */
+    border-radius: 8px;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+#signupForm {
+  background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+  padding: 45px; /* Increased padding */
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+  width: 100%;
+  max-width: 550px; /* Slightly wider */
+  backdrop-filter: blur(12px); /* Slightly more blur */
+}
+
+#signupForm label {
+  margin-bottom: 10px; /* Increased margin */
+  font-weight: 600;
+  color: #2c3e50; /* Deep blue-gray */
+  display: block;
+  font-size: 0.95em;
+}
+
+#signupForm input[type="text"],
+#signupForm input[type="email"],
+#signupForm input[type="password"],
+#signupForm select {
+  width: calc(100% - 24px);
+  padding: 14px; /* Increased padding */
+  margin-bottom: 25px; /* Increased margin */
+  border: 2px solid #e1e8ed;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+#signupForm input:focus,
+#signupForm select:focus {
+  border-color: #3498db; /* Calming blue */
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.15); /* Slightly larger, more transparent shadow */
+  transform: translateY(-2px); /* More pronounced lift */
+}
+
+#signupForm select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-6.5%200-12.3%203.2-16.1%208.1-3.8%204.9-4.9%2011-3.1%2016.2l139.4%20179.7c5.9%207.6%2015.1%2012.3%2025.1%2012.3s19.2-4.7%2025.1-12.3L290.1%2093.6c1.8-5.2.7-11.3-3.1-16.2z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 15px top 50%; /* Adjusted position */
+  background-size: 14px auto; /* Slightly larger arrow */
+}
+
+#doctorFields {
+  margin-top: 25px; /* Increased margin */
+  border: 2px solid #e1e8ed;
+  padding: 25px; /* Increased padding */
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  display: none;
+  box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.05); /* Added subtle inner shadow */
+}
+
+#doctorFields label {
+  color: #2c3e50; /* Deep blue-gray */
+}
+
+#signupForm .btn {
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%); /* Calming green gradient */
+  padding: 16px; /* Slightly larger padding */
+  font-size: 18px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 15px; /* Increased margin */
+}
+
+#signupForm .btn:hover {
+  background: linear-gradient(135deg, #27ae60 0%, #219653 100%);
+  transform: translateY(-3px); /* More pronounced lift */
+}
+
+.auth-container p {
+  margin-top: 30px; /* Increased margin */
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+}
+
+.auth-container p a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4); /* Slightly more visible border */
+  transition: all 0.3s ease;
+}
+
+.auth-container p a:hover {
+  border-bottom-color: #fff;
+}
+
+/* Password strength indicator */
+.password-strength {
+  margin-top: -18px; /* Adjusted margin */
+  margin-bottom: 25px; /* Increased margin */
+  font-size: 14px;
+}
+
+.strength-weak { color: #e74c3c; }
+.strength-medium { color: #f39c12; }
+.strength-strong { color: #27ae60; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .auth-container {
+    padding: 20px 15px;
+  }
+
+  #signupForm {
+    padding: 35px 25px;
+    margin: 0 15px;
+  }
+
+  .auth-container h1 {
+    font-size: 2.2em;
+  }
+
+  #doctorFields {
+    padding: 20px;
+  }
+}
+
+/* Terms checkbox styling */
+.terms-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px; /* Increased gap */
+  margin: 18px 0; /* Increased margin */
+}
+
+.terms-checkbox input[type="checkbox"] {
+  margin-top: 4px; /* Adjusted margin */
+  transform: scale(1.1); /* Slightly larger checkbox */
+}
+
+.terms-checkbox label {
+  font-size: 14px;
+  color: #6c757d;
+  margin: 0;
+}
+
+.terms-checkbox a {
+  color: #3498db; /* Calming blue */
+  text-decoration: none;
+}
+footer {
+    text-align: center;
+    padding: 30px; /* Increased padding */
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); /* Deep blue-gray gradient */
+    color: #fff;
+    font-size: 14px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Added top shadow */
+}

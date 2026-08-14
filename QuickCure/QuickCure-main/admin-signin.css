@@ -1,0 +1,188 @@
+/* Import base styles */
+@import url('base.css');
+
+/* Specific styles for admin-signin.html */
+
+.admin-signin-container {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); /* Deep blue-gray gradient */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.admin-signin-container h1 {
+  color: #fff;
+  margin-bottom: 30px;
+  font-size: 2.5em; /* Slightly larger */
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4); /* More pronounced shadow */
+  text-align: center;
+}
+
+.admin-signin-form {
+  background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+  padding: 45px; /* Increased padding */
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+  width: 100%;
+  max-width: 420px; /* Slightly wider */
+  backdrop-filter: blur(12px); /* Slightly more blur */
+}
+
+.admin-signin-form label {
+  margin-bottom: 10px; /* Increased margin */
+  font-weight: 600;
+  color: #2c3e50; /* Deep blue-gray */
+  display: block;
+  font-size: 0.95em;
+}
+
+.admin-signin-form input[type="text"],
+.admin-signin-form input[type="password"] {
+  width: calc(100% - 24px);
+  padding: 14px; /* Increased padding */
+  margin-bottom: 25px; /* Increased margin */
+  border: 2px solid #e1e8ed;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.admin-signin-form input:focus {
+  border-color: #3498db; /* Calming blue */
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.15); /* Slightly larger, more transparent shadow */
+  transform: translateY(-2px); /* More pronounced lift */
+}
+
+.admin-signin-form .btn {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); /* Red gradient for action */
+  padding: 16px; /* Slightly larger padding */
+  font-size: 18px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 15px; /* Increased margin */
+}
+
+.admin-signin-form .btn:hover {
+  background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+  transform: translateY(-3px); /* More pronounced lift */
+}
+
+.admin-signin-container p {
+  margin-top: 30px; /* Increased margin */
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+}
+
+.admin-signin-container p a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4); /* Slightly more visible border */
+  transition: all 0.3s ease;
+}
+
+.admin-signin-container p a:hover {
+  border-bottom-color: #fff;
+}
+
+.error-text {
+  color: #e74c3c;
+  text-align: center;
+  margin-top: 20px; /* Increased margin */
+  font-weight: 600;
+  background: rgba(231, 76, 60, 0.15); /* Slightly more transparent background */
+  padding: 12px; /* Increased padding */
+  border-radius: 8px; /* Slightly more rounded */
+  border: 1px solid rgba(231, 76, 60, 0.3); /* Slightly more visible border */
+}
+
+/* Admin specific branding */
+.admin-brand {
+  text-align: center;
+  margin-bottom: 35px; /* Increased margin */
+}
+
+.admin-brand img {
+  width: 90px; /* Slightly larger */
+  height: 90px; /* Slightly larger */
+  margin-bottom: 18px; /* Increased margin */
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); /* Red gradient */
+  padding: 18px; /* Increased padding */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Added shadow */
+}
+
+.admin-brand h2 {
+  color: #fff;
+  margin: 0;
+  font-size: 2em; /* Slightly larger */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.admin-brand p {
+  color: rgba(255, 255, 255, 0.85); /* Slightly more opaque */
+  margin: 8px 0 0; /* Increased margin */
+  font-size: 1.1em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .admin-signin-container {
+    padding: 20px 15px;
+  }
+
+  .admin-signin-form {
+    padding: 35px 25px;
+    margin: 0 15px;
+  }
+
+  .admin-signin-container h1 {
+    font-size: 2em;
+  }
+
+  .admin-brand img {
+    width: 70px;
+    height: 70px;
+    padding: 15px;
+  }
+
+  .admin-brand h2 {
+    font-size: 1.8em;
+  }
+}
+
+/* Security notice */
+.security-notice {
+  background: rgba(255, 255, 255, 0.15); /* Slightly more opaque */
+  padding: 18px; /* Increased padding */
+  border-radius: 8px;
+  margin-top: 25px; /* Increased margin */
+  color: rgba(255, 255, 255, 0.85); /* Slightly more opaque */
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.25); /* Slightly more visible border */
+}
+
+.security-notice strong {
+  color: #fff;
+  display: block;
+  margin-bottom: 8px; /* Increased margin */
+}
+
+footer {
+    text-align: center;
+    padding: 30px; /* Increased padding */
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); /* Deep blue-gray gradient */
+    color: #fff;
+    font-size: 14px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Added top shadow */
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Sign In – QuickCure</title>
+  <link rel="stylesheet" href="base.css" />
+  <link rel="stylesheet" href="admin-signin.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <a href="index.html" style="color:#fff;text-decoration:none;">
+        <img src="QuickCureLogo.jpg" alt="QuickCare Medical Logo" />
+        QuickCure
+      </a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+
+  <main class="admin-signin-container">
+    <div class="admin-brand">
+      <img src="https://placehold.co/80x80/ffffff/e74c3c?text=🔒&font=oswald" alt="Admin Security Shield Icon" />
+      <h2>Admin Portal</h2>
+      <p>Secure access to management dashboard</p>
+    </div>
+
+    <h1>Administrator Sign In</h1>
+    <form id="adminSigninForm" class="admin-signin-form">
+      <label>Admin Username</label>
+      <input type="text" id="adminUser" placeholder="Enter admin username" required>
+
+      <label>Password</label>
+      <input type="password" id="adminPassword" placeholder="Enter admin password" required>
+
+      <div style="display: flex; align-items: center; margin: 15px 0;">
+        <input type="checkbox" id="rememberAdmin" style="margin-right: 10px;">
+        <label for="rememberAdmin" style="margin: 0; font-size: 14px;">Remember this device</label>
+      </div>
+
+      <button type="submit" class="btn">Sign In</button>
+    </form>
+    <p id="errorMsg" class="error-text"></p>
+
+    <div class="security-notice">
+      <strong>🔒 Security Notice</strong>
+      <p>This portal is for authorized personnel only. All activities are monitored.</p>
+    </div>
+  </main>
+
+  <script defer src="admin-signin.js"></script>
+  <footer>
+    <p>© 2025 QuickCure. Admin access restricted to authorized personnel.</p>
+  </footer>
+</body>
+</html>
