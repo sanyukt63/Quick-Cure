@@ -33,6 +33,6 @@ module.exports.authUser = async (req, res, next) => {
 
     return next();
   } catch (err) {
-    return res.status(401).json({ message: "Unauthorized" });
+    return res.status(401).json({ message:  "Unauthorized" });
   }
 };
