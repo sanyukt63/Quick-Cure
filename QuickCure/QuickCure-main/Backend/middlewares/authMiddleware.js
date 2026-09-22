@@ -23,11 +23,11 @@ module.exports.authUser = async (req, res, next) => {
 
     req.user = user;
 
-    // 🔹 If doctor, fetch the Doctor document and attach its _id
+  
     if (user.role === "doctor") {
       const doctorDoc = await doctorModel.findOne({ user: user._id });
-      if (doctorDoc) {
-        req.user.doctorId = doctorDoc._id; // store doctorModel._id
+      if (doctorDoc) {   
+        req.user.doctorId = doctorDoc._id; 
       }
     }
 
