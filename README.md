@@ -29,6 +29,10 @@ cd Quick-Cure
 
 Open the `QuickCure` directory and follow the setup instructions provided by the application files.
 
+## 🧱 Development Priorities
+
+The project is being developed incrementally, with appointment discovery and booking as the core workflow. Documentation and tests should grow alongside each feature so the application remains easy to extend.
+
 ## 🗺️ Roadmap
 
 - [ ] Document the complete local setup
