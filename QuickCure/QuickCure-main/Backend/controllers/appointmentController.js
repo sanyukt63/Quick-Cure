@@ -1,10 +1,13 @@
 const Appointment = require('../models/appointmentModel');
 const Doctor = require('../models/doctorModel');
+const { validateAppointmentRequest } = require('../utils/appointmentValidation');
 
 // Book appointment
 exports.book = async (req, res) => {
   try {
     const { doctorId, date, time } = req.body; // ISO date string + time label
+    const validationError = validateAppointmentRequest({ doctorId, date, time });
+    if (validationError) return res.status(400).json({ msg: validationError });
     const doc = await Doctor.findById(doctorId);
     if (!doc) return res.status(404).json({ msg: 'Doctor not found' });
 
