@@ -1,6 +1,7 @@
 const Appointment = require('../models/appointmentModel');
 const Doctor = require('../models/doctorModel');
 const { validateAppointmentRequest } = require('../utils/appointmentValidation');
+const { canTransitionAppointmentStatus } = require('../utils/appointmentStatus');
 
 // Book appointment
 exports.book = async (req, res) => {
@@ -60,7 +61,7 @@ exports.cancel = async (req, res) => {
     const { id } = req.params; // appointment id
     const appt = await Appointment.findOne({ _id: id, patient: req.user._id });
     if (!appt) return res.status(404).json({ msg: 'Appointment not found' });
-    if (appt.status !== 'booked')
+    if (!canTransitionAppointmentStatus(appt.status, 'canceled'))
       return res.status(400).json({ msg: 'Cannot cancel this appointment' });
 
     // free the slot back
@@ -90,7 +91,7 @@ exports.complete = async (req, res) => {
     const appt = await Appointment.findById(id).populate('doctor');
     if (!appt) return res.status(404).json({ msg: 'Appointment not found' });
 
-    if (appt.status !== 'booked')
+    if (!canTransitionAppointmentStatus(appt.status, 'completed'))
       return res.status(400).json({ msg: 'Only booked appointments can be completed' });
 
     appt.status = 'completed';
