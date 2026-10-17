@@ -65,13 +65,18 @@ exports.cancel = async (req, res) => {
 
     // free the slot back
     const doc = await Doctor.findById(appt.doctor);
-    const day = doc.schedule.find(
-      (d) => new Date(d.date).toDateString() === new Date(appt.date).toDateString()
-    );
-    if (day) {
-      const slot = day.slots.find((s) => s.time === appt.time);
-      if (slot) slot.booked = false;
-      await doc.save();
+    // The doctor record may have been removed after the appointment was created.
+    if (doc) {
+      const day = (doc.schedule || []).find(
+        (d) => new Date(d.date).toDateString() === new Date(appt.date).toDateString()
+      );
+      if (day) {
+        const slot = (day.slots || []).find((s) => s.time === appt.time);
+        if (slot) {
+          slot.booked = false;
+          await doc.save();
+        }
+      }
     }
 
     appt.status = 'canceled';
