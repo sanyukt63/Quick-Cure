@@ -24,3 +24,14 @@ test('rejects non-ISO and impossible calendar dates', () => {
     /ISO date/i
   );
 });
+
+test('rejects whitespace-only appointment fields', () => {
+  assert.match(
+    validateAppointmentRequest({ doctorId: 'doctor-1', date: '2026-10-20', time: '   ' }),
+    /required/i
+  );
+  assert.match(
+    validateAppointmentRequest({ doctorId: '   ', date: '2026-10-20', time: '10:00 AM' }),
+    /required/i
+  );
+});
