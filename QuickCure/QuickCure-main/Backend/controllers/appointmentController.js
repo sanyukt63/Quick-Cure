@@ -5,7 +5,9 @@ const { validateAppointmentRequest } = require('../utils/appointmentValidation')
 // Book appointment
 exports.book = async (req, res) => {
   try {
-    const { doctorId, date, time } = req.body; // ISO date string + time label
+    const doctorId = typeof req.body.doctorId === 'string' ? req.body.doctorId.trim() : req.body.doctorId;
+    const date = typeof req.body.date === 'string' ? req.body.date.trim() : req.body.date;
+    const time = typeof req.body.time === 'string' ? req.body.time.trim() : req.body.time; // ISO date + slot label
     const validationError = validateAppointmentRequest({ doctorId, date, time });
     if (validationError) return res.status(400).json({ msg: validationError });
     const doc = await Doctor.findById(doctorId);
