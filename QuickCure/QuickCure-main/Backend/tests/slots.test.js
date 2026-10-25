@@ -19,3 +19,10 @@ test('rejects invalid days and time lists', () => {
   assert.throws(() => generateSlots(2, '9:00 AM'), /array of non-empty strings/);
   assert.throws(() => generateSlots(2, ['']), /array of non-empty strings/);
 });
+
+test('rejects duplicate appointment times', () => {
+  assert.throws(
+    () => generateSlots(1, ['10:00 AM', '10:00 AM']),
+    /must not contain duplicates/
+  );
+});
