@@ -26,3 +26,7 @@ test('rejects duplicate appointment times', () => {
     /must not contain duplicates/
   );
 });
+
+test('rejects fractional day counts', () => {
+  assert.throws(() => generateSlots(1.5), /non-negative integer/);
+});
