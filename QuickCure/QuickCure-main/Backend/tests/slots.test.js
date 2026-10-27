@@ -30,3 +30,7 @@ test('rejects duplicate appointment times', () => {
 test('rejects fractional day counts', () => {
   assert.throws(() => generateSlots(1.5), /non-negative integer/);
 });
+
+test('rejects whitespace-only slot labels', () => {
+  assert.throws(() => generateSlots(1, ['   ']), /array of non-empty strings/);
+});
