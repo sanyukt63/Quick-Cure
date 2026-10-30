@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   return;
 }
 
-
   /*// Get logged-in user and token
   const currentUser = JSON.parse(localStorage.getItem("user"));
   // Only alert if we're not already redirecting
@@ -190,9 +189,7 @@ if (!currentUser || currentUser.role !== "patient") {
     renderDoctors(doctors);
   });
 
-  
 });
-
 
 document.addEventListener("DOMContentLoaded", () => {
   const logoutBtn = document.getElementById("logoutBtn");
@@ -218,4 +215,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-
