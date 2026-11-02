@@ -11,8 +11,19 @@ const appointmentRoutes = require('./routes/appointmentRouter');
 const patientRouter = require("./routes/patientRouter");
 const app = express()
 
+const allowedOrigins = (process.env.CLIENT_ORIGINS ||
+  "http://localhost:5500,http://127.0.0.1:5500")
+  .split(",")
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+
 app.use(cors({
-  origin: ["http://localhost:5500", "http://127.0.0.1:5500"],
+  origin(origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    return callback(new Error("Origin is not allowed by CORS"));
+  },
   credentials: true
 }));
 
