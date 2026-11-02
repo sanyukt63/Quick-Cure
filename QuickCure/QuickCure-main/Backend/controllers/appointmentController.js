@@ -90,6 +90,16 @@ exports.complete = async (req, res) => {
     const appt = await Appointment.findById(id).populate('doctor');
     if (!appt) return res.status(404).json({ msg: 'Appointment not found' });
 
+    const isAdmin = req.user.role === 'admin';
+    const isAssignedDoctor =
+      req.user.role === 'doctor' &&
+      req.user.doctorId &&
+      String(appt.doctor._id) === String(req.user.doctorId);
+
+    if (!isAdmin && !isAssignedDoctor) {
+      return res.status(403).json({ msg: 'Not authorized to complete this appointment' });
+    }
+
     if (appt.status !== 'booked')
       return res.status(400).json({ msg: 'Only booked appointments can be completed' });
 
