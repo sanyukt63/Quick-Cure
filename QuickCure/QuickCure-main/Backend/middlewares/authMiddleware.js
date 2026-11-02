@@ -5,7 +5,7 @@ const blacklistTokenModel = require('../models/blacklistTokenModel');
 
 module.exports.authUser = async (req, res, next) => {
   const authorization = req.headers.authorization || '';
-  const bearerToken = authorization.match(/^Bearer\\s+(.+)$/i)?.[1];
+  const bearerToken = authorization.toLowerCase().startsWith('bearer ') ? authorization.slice(7).trim() : null;
   const token = req.cookies?.token || bearerToken;
 
   if (!token) {
